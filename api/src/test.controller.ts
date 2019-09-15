@@ -6,8 +6,6 @@ export class TestController {
 
   @Get()
   getTest() {
-    console.log('hi');
-    console.log('test');
     return 'hi';
   }
 
