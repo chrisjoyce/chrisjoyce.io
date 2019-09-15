@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  app.kubernetes.io/name: api-chrisjoyce.io
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: api.chrisjoyce.io
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: api.chrisjoyce.io
+    spec:
+      containers:
+      - name: api.chrisjoyce.io
+        image: christopherjoyce/api.chrisjoyce.io
+        ports:
+        - containerPort: 3000
