@@ -1,0 +1,12 @@
+version: '3'
+services:
+  api.chrisjoyce.io:
+    container_name: api.chrisjoyce.io
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./src:/app/src
+    ports:
+      - "3000:3000"
+    image: api.chrisjoyce.io
