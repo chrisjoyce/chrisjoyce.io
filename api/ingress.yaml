@@ -1,0 +1,12 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: api-chrisjoyce-io-ingress
+spec:
+  rules:
+    - host: api.chrisjoyce.io
+      http:
+        paths:
+        - backend:
+            serviceName: api-chrisjoyce-io-service
+            servicePort: 80

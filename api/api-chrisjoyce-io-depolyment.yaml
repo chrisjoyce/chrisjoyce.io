@@ -1,19 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  app.kubernetes.io/name: api-chrisjoyce.io
+  name: api-chrisjoyce-io-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: api.chrisjoyce.io
+      name: api-chrisjoyce-io-deployment
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: api.chrisjoyce.io
+        name: api-chrisjoyce-io-deployment
     spec:
       containers:
-      - name: api.chrisjoyce.io
+      - name: api-chrisjoyce-io-app
         image: christopherjoyce/api.chrisjoyce.io
         ports:
-        - containerPort: 3000
+          - name: http
+            containerPort: 3000
+            hostPort: 3000
+            protocol: TCP
+        resources:
+            limits:
+              cpu: 100m
+              memory: 128Mi
